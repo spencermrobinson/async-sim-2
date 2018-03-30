@@ -1,0 +1,58 @@
+.login_container {
+    width: 60vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+	
+	
+}
+
+
+.logo {
+    height: 180px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+
+}
+
+.title_text {
+    margin-right: 360px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.password_input {
+    margin-bottom: 20px;
+}
+
+.buttons_container {
+    position: relative;
+
+}
+
+.login_button {
+    position: relative;
+    right: 20px;
+    height: 40px;
+    width: 120px;
+    background: #8AEA92;
+    font-size: 20px;
+}
+.register_button {
+    position: relative;
+    height: 40px;
+    width: 120px;
+    background: #519872;
+    color: white;
+    font-size: 20px;
+}
