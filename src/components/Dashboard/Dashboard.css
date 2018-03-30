@@ -1,0 +1,7 @@
+.white_container {
+    width: 70vw;
+    height: 100vh;
+    background: white;
+    position: relative;
+    left: 200px;
+}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header.js';
+import './Dashboard.css';
 
 class Dashboard extends Component{
     constructor(){
@@ -9,7 +11,8 @@ class Dashboard extends Component{
     render(){
         return(
             <div>
-            <h1>Dashboard</h1>
+                <Header/>
+                <div className="white_container"></div> 
             </div> 
         )
     }
