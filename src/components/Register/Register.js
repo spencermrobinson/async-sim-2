@@ -2,20 +2,39 @@ import React, { Component } from 'react';
 import logo from '../assets/auth_logo.png';
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login.js';
+import axios from 'axios';
 
 class Register extends Component{
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state ={
-            username: this.props.username,
-            password: this.props.password
+            username: '',
+            password: ''
         }
-        
-        
-       
-        
+        this.handler = this.handler.bind(this);
+        this.setInputs = this.setInputs.bind(this);
+        this.createUser = this.createUser.bind(this);
     }
 
+    handler(prop, val){
+        this.setState({
+            [prop]: val
+        })
+    };
+
+    setInputs(){
+        this.setState({
+            username: this.state.username,
+            password: this.state.password
+         })
+    };
+
+    createUser(){
+        axios.post(`/api/createUser`, {
+            username: this.state.username,
+            password: this.state.password
+        }).then((res) => this.props.history.push('/dashboard'))
+    }
   
 
 
@@ -32,7 +51,12 @@ class Register extends Component{
                     <input type='text' className='password_input' onChange={(e) => this.handler('password', e.target.value) }/>
                 <div className="buttons_container">
                     
-                    <button type='password' className='register_button'>Register</button>
+                    <button type='password' className='register_button' onClick={ ()=>
+                        {
+                            this.setInputs();
+                            this.createUser();
+                        }
+                    }>Register</button>
                 
                 </div>
             </div> 
