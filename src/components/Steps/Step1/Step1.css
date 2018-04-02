@@ -24,3 +24,50 @@
     left: 280px;
     border-radius: 4px;
 }
+.input_container {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: flex-start;
+    position: relative;
+    top: 80px;
+    margin: 40px;
+    
+}
+.input_text {
+    position: relative;
+    right: 200px;
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+.description_input_text {
+    position: relative;
+    right: 180px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 30px;
+    
+}
+
+.description_input {
+    background:#ffffcc;
+	height: 200px;
+	width: 500px;
+	margin: 10px;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.next_step {
+    background-color: #3B5249;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    margin-top: 20px;
+
+}

@@ -44,9 +44,9 @@ class Login extends Component{
             <div className='login_container'>
                 <img src={ logo } alt="logo" className="logo"/>
                     <span className="title_text">Username</span>
-                    <input type='text' className='username_input' onChange={(e) => this.handler('username', e.target.value) }/>
+                    <input type='text' className='input' onChange={(e) => this.handler('username', e.target.value) }/>
                     <span className="title_text">Password</span>
-                    <input type='text' className='password_input' onChange={(e) => this.handler('password', e.target.value) }/>
+                    <input type='text' className='input' onChange={(e) => this.handler('password', e.target.value) }/>
                 <div className="buttons_container">
                     <button type='text' className='login_button' onClick={ () => {
                         this.setInputs();

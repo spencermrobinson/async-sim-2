@@ -51,14 +51,14 @@ a:link {
 }
 .App {
   background:#AFD4C0;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   flex-direction: row;
 	justify-content: center;
 }
 
-input {
+.input {
 	background:#ffffcc;
 	height: 30px;
 	width: 500px;
