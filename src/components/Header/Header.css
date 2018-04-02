@@ -30,3 +30,12 @@
     font-weight: 400;
    
 }
+
+.logout_link {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    bottom: 5px;
+    left: 1050px;
+}

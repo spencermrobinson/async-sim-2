@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Header.css';
 import logo from '../assets/header_logo.png';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+ 
 
-export default function Header(){
-    //need to complete logout
+class Header extends Component{
+    constructor(props){
+        super(props);
+        this.logout = this.logout.bind(this);
+    }
+
+    logout(){
+        axios.post('/api/logout')
+        
+    }
+
+    render(){
+        
     return(
         <div>
          <div className="header_outer">
@@ -15,10 +29,14 @@ export default function Header(){
          >Dashboard</span>
          </section>
          <section>
+            <Link to="/" className='logout_link'><div className='logout' onClick={ () => {
+                this.logout();
+            }}>Logout</div></Link> 
         
          </section>
         
         </div> 
         </div>
-    )
+    )}
 }
+export default Header;

@@ -42,7 +42,7 @@ class Login extends Component{
         
         return(
             <div className='login_container'>
-                <img src={ logo } alt="logo" class="logo"/>
+                <img src={ logo } alt="logo" className="logo"/>
                     <span className="title_text">Username</span>
                     <input type='text' className='username_input' onChange={(e) => this.handler('username', e.target.value) }/>
                     <span className="title_text">Password</span>

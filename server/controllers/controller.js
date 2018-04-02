@@ -17,8 +17,15 @@ module.exports = {
         .then((response) => {
             req.session.user.user_id = response[0].id
             res.status(200).send(response[0])
+            console.log(req.session.user.user_id)
         })
     },
+
+    logout: (req, res) => {
+        req.session.destroy();
+        res.status(200).send(req.session);
+        console.log(req.session, 'session')
+    }
 
     
 
