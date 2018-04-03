@@ -32,7 +32,9 @@ export default ( state = initialState, action ) => {
         for( var i in payload ) {
           newState.property[i] = payload[i];
         }
-        return newState;
+        return console.log(newState);
+        
+        
       }
   
       case RESET_PROPERTY: {

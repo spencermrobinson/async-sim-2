@@ -8,9 +8,10 @@ import { updateProperty } from '../../../ducks/reducer.js';
 class Step1 extends Component{
     constructor(props){
         super(props);
+        const { property } = this.props;
         this.state={
-            name: this.props.property.name || '',
-            description: this.props.property.description || ''
+            name: this.props.name || '',
+            description: this.props.description || ''
         }
         this.handleChange = this.handleChange.bind(this);
 
@@ -24,7 +25,7 @@ class Step1 extends Component{
 
 
     render(){
-        console.log(this.state.name, 'consoled state')
+        
         const { name, description } = this.state;
         const { updateProperty } = this.props;
         return(
@@ -38,13 +39,13 @@ class Step1 extends Component{
             <section className="input_container">
                 <span className="input_text">Name</span>
                 
-                <input type='text' className='input'/>
+                <input type='text' className='input' onChange={(e)=>{ this.handleChange('name', e.target.value)}}/>
                 
                 <span className="description_input_text">Description</span>
                 
-                <input type='text' className='description_input'/>
+                <input type='text' className='description_input' onChange={(e)=>{ this.handleChange('description', e.target.value)}}/>
                 
-                <button type='button' className='next_step'>Next Step</button>
+                <button type='button' className='next_step' onClick={ ()=> updateProperty({ name, description}) }>Next Step</button>
 
             </section>
 
@@ -56,4 +57,10 @@ class Step1 extends Component{
         )
     }
 }
-export default connect(state => ({ property: state.property}), { updateProperty})(Step1);
+function mapStateToProps( state ){
+    return {
+        name: state.property.name,
+        description: state.property.description
+    }
+}
+export default connect( mapStateToProps, { updateProperty})(Step1);
