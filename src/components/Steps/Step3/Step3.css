@@ -1,0 +1,50 @@
+.input_container {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+}
+
+.button_container {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+}
+.next_step3 {
+    background-color: #3B5249;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    margin: 20px;
+    margin-left: 170px;
+    
+}
+.previous_step3 {
+    background-color: #3B5249;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    margin: 20px;
+   
+}
+.image_display_step3 {
+    width:70%;
+    height: 240px;
+    border-radius: 2px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+    
+}
