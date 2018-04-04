@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../Header/Header.js';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateProperty } from '../../../ducks/reducer.js';
+import { updateProperty, resetProperty } from '../../../ducks/reducer.js';
 import './Step2.css';
 
 class Step2 extends Component{
@@ -26,14 +26,14 @@ class Step2 extends Component{
 
     render(){
         const { address, city, state, zip } = this.state;
-        const { updateProperty } = this.props;
+        const { updateProperty, resetProperty } = this.props;
         return(
             <div>
             <Header/>
                 <div className="white_container">
                 <section className='add_cancel'>
                 <h3 className='add_property_text'>Add New Property</h3>
-                <button type='button' className='cancel_button'>Cancel</button>
+                <Link to="/dashboard"><button type='button' className='cancel_button' onClick={ () => resetProperty()} >Cancel</button></Link>
             </section>
             <section className="input_container">
                 <span className="input_text">Address</span>
@@ -72,4 +72,4 @@ function mapStateToProps( state ){
         zip: state.property.zip
     }
 }
-export default connect( mapStateToProps, { updateProperty})(Step2);
+export default connect( mapStateToProps, { updateProperty, resetProperty})(Step2);

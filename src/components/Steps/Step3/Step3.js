@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import Header from '../../Header/Header.js';
-
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateProperty, resetProperty } from '../../../ducks/reducer.js';
 class Step3 extends Component{
     constructor(){
         super();
     }
 
     render(){
+        
+        const { updateProperty, resetProperty } = this.props;
         return(
             <div>
             <Header/>
                 <div className="white_container">
                 <section className='add_cancel'>
                 <h3 className='add_property_text'>Add New Property</h3>
-                <button type='button' className='cancel_button'>Cancel</button>
+                <Link to="/dashboard"><button type='button' className='cancel_button' onClick={ () => resetProperty()} >Cancel</button></Link>
             </section>
             <section className="input_container">
                 
@@ -34,4 +38,10 @@ class Step3 extends Component{
         )
     }
 }
-export default Step3;
+function mapStateToProps( state ){
+    return {
+        name: state.property.name,
+        description: state.property.description
+    }
+}
+export default connect( mapStateToProps, { updateProperty, resetProperty})(Step3);
