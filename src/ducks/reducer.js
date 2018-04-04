@@ -31,8 +31,9 @@ export default ( state = initialState, action ) => {
         let newState = Object.assign({}, state);
         for( var i in payload ) {
           newState.property[i] = payload[i];
+          console.log(newState)
         }
-        return console.log(newState);
+        return newState;
         
         
       }
@@ -42,9 +43,10 @@ export default ( state = initialState, action ) => {
         for( var j in newState.property ) {
           newState.property[j] = null;
         }
-        return newState;
+        return newState
+        console.log(newState)
       }
-  
+      
       default: return state;
     }
   }
@@ -52,6 +54,13 @@ export default ( state = initialState, action ) => {
     return {
       type: UPDATE_PROPERTY,
       payload: obj
-    };
+    }
+    
+  }
+  export function resetProperty() {
+    return {
+      type: RESET_PROPERTY,
+      payload: null
+    }
   }
   

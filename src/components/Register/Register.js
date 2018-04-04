@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../assets/auth_logo.png';
-import { Link } from 'react-router-dom';
-import Login from '../Login/Login.js';
 import axios from 'axios';
 
 class Register extends Component{

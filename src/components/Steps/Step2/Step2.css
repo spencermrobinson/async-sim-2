@@ -1,0 +1,81 @@
+.city_input {
+    background:#ffffcc;
+	height: 30px;
+	width: 200px;
+	margin: 10px;
+	font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    left: 0px;
+    top: 100px;
+}
+.state_input {
+    background:#ffffcc;
+	height: 30px;
+	width: 200px;
+	margin: 10px;
+	font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+}
+.zip_input{
+    background:#ffffcc;
+	height: 30px;
+	width: 200px;
+	margin: 10px;
+	font-size: 20px;
+    font-weight: 500;
+    margin-top: 80px;
+    margin-right: 310px;
+}
+
+.previous_step2 {
+    background-color: #3B5249;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    margin-top: 20px;
+    position: absolute;
+    left: 90px;
+    
+}
+.next_step2{
+    background-color: #3B5249;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    margin-top: 20px;
+    position: absolute;
+    left: 290px;
+}
+.city_input_text{
+    font-size: 20px;
+    font-weight: 700;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    padding-top:20px;
+    padding-left: 10px; 
+}
+.state_input_text {
+    font-size: 20px;
+    font-weight: 700;
+    position: absolute;
+    top: 60px;
+    left: 310px;
+    padding-top:20px;
+    padding-left: 10px; 
+}
+.zip_input_text {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 80px;
+    margin-right: 460px;
+    margin-bottom: -70px;
+}
