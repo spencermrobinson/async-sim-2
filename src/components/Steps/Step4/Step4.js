@@ -46,7 +46,7 @@ class Step4 extends Component{
 
                <section className='button_container'>
                 <Link to="/step3"><button type='button' className='previous_step3'  onClick={()=> updateProperty({loan, mortgage})}>Previous Step</button></Link>
-                <Link to="/step3"><button type='button' className='next_step3' onClick={()=> updateProperty({loan, mortgage})}>Next Step</button></Link>
+                <Link to="/step5"><button type='button' className='next_step3' onClick={()=> updateProperty({loan, mortgage})}>Next Step</button></Link>
                 </section>
 
             </section>

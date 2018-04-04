@@ -8,7 +8,7 @@ const initialState = {
         description: null,
         address: null,
         city: null,
-        state: null,
+        State: null,
         zip: null,
         image: null,
         loan: null,
@@ -44,7 +44,7 @@ export default ( state = initialState, action ) => {
           newState.property[j] = null;
         }
         return newState
-        console.log(newState)
+        
       }
       
       default: return state;

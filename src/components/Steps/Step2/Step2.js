@@ -11,7 +11,7 @@ class Step2 extends Component{
         this.state = {
             address: this.props.address || '',
             city: this.props.city || '',
-            state: this.props.state || '',
+            State: this.props.State || '',
             zip: this.props.zip || ''
         }
         this.handleChange = this.handleChange.bind(this);
@@ -25,8 +25,10 @@ class Step2 extends Component{
     }
 
     render(){
-        const { address, city, state, zip } = this.state;
+        const { address, city, State, zip } = this.state;
         const { updateProperty, resetProperty } = this.props;
+        
+        
         return(
             <div>
             <Header/>
@@ -46,14 +48,14 @@ class Step2 extends Component{
 
                 <span className="state_input_text">State</span>
                 
-                    <input type='text' className='state_input' value={ state } onChange={ (e) => { this.handleChange('state', e.target.value)}}/>
+                    <input type='text' className='state_input' value={ State } onChange={ (e) => { this.handleChange('state', e.target.value)}}/>
                 <br/>
                 <span className="zip_input_text">Zip</span>
                 
                     <input type='text' className='zip_input' value={ zip } onChange={ (e) => { this.handleChange('zip', e.target.value)}}/>
 
-                <Link to="/step1"><button type='button' className='previous_step2' onClick={()=> updateProperty({address, city, state, zip})}>Previous Step</button></Link>
-                <Link to="/step3"><button type='button' className='next_step2' onClick={()=> updateProperty({address, city, state, zip})}>Next Step</button></Link>
+                <Link to="/step1"><button type='button' className='previous_step2' onClick={()=> updateProperty({address, city, State, zip})}>Previous Step</button></Link>
+                <Link to="/step3"><button type='button' className='next_step2' onClick={()=> updateProperty({address, city, State, zip})}>Next Step</button></Link>
 
             </section>
 
@@ -68,8 +70,9 @@ function mapStateToProps( state ){
     return {
         address: state.property.address,
         city: state.property.city,
-        state: state.property.state,
-        zip: state.property.zip
+        State: state.property.State,
+        zip: state.property.zip,
+        
     }
 }
 export default connect( mapStateToProps, { updateProperty, resetProperty})(Step2);

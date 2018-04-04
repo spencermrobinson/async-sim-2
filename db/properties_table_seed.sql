@@ -6,9 +6,10 @@ CREATE TABLE IF NOT EXISTS properties(
     address VARCHAR(30),
     city VARCHAR(20),
     state VARCHAR(12),
-    zip INTEGER,
+    zip VARCHAR(20),
     image TEXT,
     loan VARCHAR(20),
     mortgage VARCHAR(20),
-    rent VARCHAR(20)
+    rent VARCHAR(20),
+    recommended_rent VARCHAR(20)
 );
