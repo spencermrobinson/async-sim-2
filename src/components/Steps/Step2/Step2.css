@@ -40,7 +40,7 @@
     width: 160px;
     margin-top: 20px;
     position: absolute;
-    left: 90px;
+    left: 10px;
     
 }
 .next_step2{
@@ -52,7 +52,7 @@
     width: 160px;
     margin-top: 20px;
     position: absolute;
-    left: 290px;
+    left: 360px;
 }
 .city_input_text{
     font-size: 20px;

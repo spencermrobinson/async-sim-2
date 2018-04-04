@@ -29,7 +29,7 @@ class Step3 extends Component{
                 return <img src={logo} alt='logo'/>
             }
             else{
-                return <img src={ image } alt='image'/>
+                return <img src={ image } alt='image' className="url"/>
             }
         }
         return(
