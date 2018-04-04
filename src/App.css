@@ -52,7 +52,7 @@ a:link {
 .App {
   background:#AFD4C0;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
 	justify-content: center;
