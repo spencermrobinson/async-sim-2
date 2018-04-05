@@ -2,14 +2,25 @@ import React, { Component } from 'react';
 import Header from '../Header/Header.js';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
+import axios from 'axios';
+import { resetProperty } from '../../ducks/reducer.js';
+import { connect } from 'react-redux';
 
 class Dashboard extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        this.state={
+            listings: this.props.listings 
+        }
+    }
+
+    componentDidMount(){
+        this.props.resetProperty();
     }
 
 
     render(){
+        let { resetProperty, updateProperty } = this.props;
         return(
             <div>
                 <Header/>
@@ -20,4 +31,9 @@ class Dashboard extends Component{
         )
     }
 }
-export default Dashboard;
+function mapStateToProps(state){
+    return{
+        listings: state.listings
+    }
+}
+export default connect(mapStateToProps,{resetProperty})(Dashboard)

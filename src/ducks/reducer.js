@@ -14,7 +14,7 @@ const initialState = {
         loan: null,
         mortgage: null,
         rent: null,
-        recommended: null
+        recommended_rent: null
     }
 };
 

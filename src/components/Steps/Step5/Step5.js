@@ -10,17 +10,35 @@ class Step5 extends Component{
     constructor(props){
         super(props);
         this.state={
-            recommended: this.props.recommended || parseInt(this.props.mortgage, 10) * 1.25 || '',
+            recommended_rent: this.props.recommended_rent || parseInt(this.props.mortgage, 10) * 1.25 || '',
             rent: this.props.rent || ''
         }
         this.handleChange = this.handleChange.bind(this);
+        this.completeProperty = this.completeProperty.bind(this);
         
 
     }
 
     completeProperty(){
         let { name, description, address, city, State, zip, image, loan, mortgage, rent, recommended_rent } = this.props;
-//axios post
+        
+        
+        axios.post(`/api/createProperty`, {
+            name: name,
+            description: description,
+            address: address,
+            city: city,
+            state: State,
+            zip: zip,
+            image: image,
+            loan: loan,
+            mortgage: mortgage,
+            rent: rent,
+            recommended_rent: recommended_rent
+        }).then((res) => this.props.history.push('/dashboard'))
+        console.log('axios complete')
+       ;
+        
     }
 
     handleChange(prop, val){
@@ -30,7 +48,7 @@ class Step5 extends Component{
     }
 
     render(){
-        let { rent, recommended } = this.state;
+        let { rent, recommended_rent } = this.state;
         let { resetProperty, updateProperty } = this.props;
         
         
@@ -43,12 +61,18 @@ class Step5 extends Component{
                 <Link to="/dashboard"><button type='button' className='cancel_button' onClick={ () => resetProperty()} >Cancel</button></Link>
                 </section>
                 <section className="input_container">
-                    <span className="recommended_rent_input_text" >Recommened Rent ${recommended}</span>
+                    <span className="recommended_rent_input_text" >Recommened Rent ${recommended_rent}</span>
                     <span className="desired_rent_input_text" >Desired Rent</span>
                     <input type='text' className='input' onChange={(e) =>{ this.handleChange('rent', e.target.value)}}/>
                 <section className='button_container'>
-                    <Link to="/step4"><button type='button' className='previous_step3' onClick={() => updateProperty({rent, recommended})}>Previous Step</button></Link>
-                    <Link to="/dashboard"><button type='button' className='next_step3' onClick={() => updateProperty({rent, recommended})}>Complete</button></Link>
+                    <Link to="/step4"><button type='button' className='previous_step3' onClick={() => updateProperty({rent, recommended_rent})}>Previous Step</button></Link>
+                    
+                    <button type='button' className='next_step3' onClick={() => {
+                        updateProperty({rent, recommended_rent});
+                        this.completeProperty();
+                        
+
+                    }}>Complete</button>
                 </section>
 
                 </section>

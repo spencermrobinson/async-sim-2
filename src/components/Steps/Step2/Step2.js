@@ -48,7 +48,7 @@ class Step2 extends Component{
 
                 <span className="state_input_text">State</span>
                 
-                    <input type='text' className='state_input' value={ State } onChange={ (e) => { this.handleChange('state', e.target.value)}}/>
+                    <input type='text' className='state_input' value={ State } onChange={ (e) => { this.handleChange('State', e.target.value)}}/>
                 <br/>
                 <span className="zip_input_text">Zip</span>
                 
