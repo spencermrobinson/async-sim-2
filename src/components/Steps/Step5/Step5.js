@@ -20,10 +20,12 @@ class Step5 extends Component{
     }
 
     completeProperty(){
-        let { name, description, address, city, State, zip, image, loan, mortgage, rent, recommended_rent } = this.props;
+        let { name, description, address, city, State, zip, image, loan, mortgage } = this.props;
+        let { rent, recommended_rent } = this.state;
         
         
         axios.post(`/api/createProperty`, {
+            
             name: name,
             description: description,
             address: address,
@@ -35,9 +37,9 @@ class Step5 extends Component{
             mortgage: mortgage,
             rent: rent,
             recommended_rent: recommended_rent
-        }).then((res) => this.props.history.push('/dashboard'))
-        console.log('axios complete')
-       ;
+        }).then((res) => {this.props.resetProperty();
+             this.props.history.push('/dashboard')});
+       
         
     }
 
@@ -68,7 +70,7 @@ class Step5 extends Component{
                     <Link to="/step4"><button type='button' className='previous_step3' onClick={() => updateProperty({rent, recommended_rent})}>Previous Step</button></Link>
                     
                     <button type='button' className='next_step3' onClick={() => {
-                        updateProperty({rent, recommended_rent});
+                        
                         this.completeProperty();
                         
 

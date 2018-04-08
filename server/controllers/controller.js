@@ -19,7 +19,16 @@ module.exports = {
         .then( ()=>{
             res.status(200).send('success')
             
-        }).catch()
+        }).catch( ()=> res.status(500).send())
+    },
+
+    getProperties: (req, res ) => {
+        let db = req.app.get('db');
+        let user_id = req.session.user.user_id;
+        db.getAllProperties([ user_id ]).then( (resp) => {
+            res.status(200).send(resp)
+        })
+        .catch(() => res.status(500).send())
     },
 
     loginUser: ( req, res) => {

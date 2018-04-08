@@ -35,6 +35,7 @@ app.post(`/api/createUser`, ctrl.createUser);
 app.post(`/api/loginUser`, ctrl.loginUser );
 app.post('/api/logout', ctrl.logout );
 app.post(`/api/createProperty`, ctrl.createProperty );
+app.get(`/api/getProperties`, ctrl.getProperties);
 
 
 

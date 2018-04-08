@@ -3,37 +3,52 @@ import Header from '../Header/Header.js';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import axios from 'axios';
-import { resetProperty } from '../../ducks/reducer.js';
-import { connect } from 'react-redux';
+
+
 
 class Dashboard extends Component{
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state={
-            listings: this.props.listings 
+            listings: []
         }
     }
 
     componentDidMount(){
-        this.props.resetProperty();
+        axios.get(`/api/getProperties`)
+        .then((res) => {console.log(res.data) 
+            this.setState({ listings: res.data })})
+        
     }
 
 
     render(){
-        let { resetProperty, updateProperty } = this.props;
+        console.log(this.state.listings,'listings')
+        
+        const propertiesRender = this.state.listings.map(e => 
+            {return <div>
+                <ul>
+                <li className=''>{e.name}properties</li>
+                </ul>
+            </div>}
+        )
+        
         return(
             <div>
                 <Header/>
                 <div className="white_container">
                 <Link to='/step1'><button type='button' className='add_property'>Add New Property</button></Link>
                 </div> 
+                <div>{this.state.listings.map(e => 
+                    {return <div>
+                        <ul>
+                        <li className=''>{e.name}properties</li>
+                        </ul>
+                    </div>}
+                )}</div> 
             </div> 
         )
     }
 }
-function mapStateToProps(state){
-    return{
-        listings: state.listings
-    }
-}
-export default connect(mapStateToProps,{resetProperty})(Dashboard)
+
+export default Dashboard;
