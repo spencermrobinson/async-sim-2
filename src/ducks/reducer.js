@@ -20,10 +20,12 @@ const initialState = {
 
 const UPDATE_PROPERTY = "UPDATE_PROPERTY";
 const RESET_PROPERTY = "RESET_PROPERTY";
+const GET_PROPERTIES = "GET_PROPERTIES";
 const DELETE_PROPERTY = "DELETE_PROPERTY";
 
 export default ( state = initialState, action ) => {
     const { payload } = action;
+    console.log(action)
   
     switch( action.type ) {
       
@@ -39,8 +41,16 @@ export default ( state = initialState, action ) => {
         
       }
 
-      case DELETE_PROPERTY + 'FULFILLED':
-        return Object.assign( {}, state, {properties: payload});
+      case GET_PROPERTIES + '_FULFILLED':
+      return Object.assign( {}, state, { listings: payload });
+
+      case GET_PROPERTIES + '_REJECTED':
+      return Object.assign( {}, initialState);
+
+      case DELETE_PROPERTY + '_FULFILLED':
+        return Object.assign( {}, state, {listings: payload});
+
+
   
       case RESET_PROPERTY: {
         let newState = Object.assign({}, state);
@@ -54,6 +64,16 @@ export default ( state = initialState, action ) => {
       default: return state;
     }
   }
+  export function getProperties( history ){
+    const promise = axios.get(`/api/getProperties`).then( resp => resp.data)
+    .catch( () => history.push('/'));
+
+    return {
+      type: GET_PROPERTIES,
+      payload: promise
+    }
+  }
+
   export function updateProperty( obj ) {
     return {
       type: UPDATE_PROPERTY,
@@ -70,7 +90,7 @@ export default ( state = initialState, action ) => {
 
   export function deleteProperty(id){
     console.log('reducer id:', id)
-    const promise = axios.delete(`/api/deleteProperty/${ id }`).then( resp => {resp.data, console.log('reducer hit')});
+    const promise = axios.delete(`/api/deleteProperty/${ id }`).then( resp => resp.data);
     return{
       type: DELETE_PROPERTY,
       payload: promise

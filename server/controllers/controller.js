@@ -50,9 +50,10 @@ module.exports = {
 
     deleteProperty: (req, res) => {
         let db = req.app.get('db');
-        db.deleteProperty([req.params.id])
-        .then( () =>{ 
-            res.status(200).send();
+        db.deleteProperty([req.params.id, req.session.user.user_id])
+        .then( (resp) =>{ 
+            res.status(200).send(resp)
+            console.log(resp,'after delete')
         })
     }
 

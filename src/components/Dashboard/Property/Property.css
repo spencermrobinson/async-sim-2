@@ -1,0 +1,89 @@
+.grey_property_container {
+    height: 100;
+    width: 100%;
+    background-color: lightgrey;
+    margin-left: 6px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-around;
+
+}
+.property_image_container {
+    height: 100%; 
+    width: 120px;
+    
+    
+}
+.property_image {
+    height: 100%; 
+    width: 120px;
+    margin: 10px;
+    
+}
+.property_desc_container {
+    width: calc( 100% -120px);
+    height: 100%;
+    margin: 20px;
+    margin-bottom: -10px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+    box-sizing: border-box;
+
+}
+
+.property_desc_parent {
+    height: 100%;
+    width: 50%;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.property_desc_child {
+    width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+  overflow: auto;
+  padding-right: 10px;
+}
+.property_detail_parent {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+
+}
+.property_detail_child {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+
+}
+.property_text {
+    font-size: 12px;
+    margin: 6px;
+}
+.delete_btn {
+    margin: 20px;
+    position: absolute;
+
+    
+}

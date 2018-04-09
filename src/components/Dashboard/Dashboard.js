@@ -1,39 +1,30 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
 import { Link } from 'react-router-dom';
-import { deleteProperty } from '../../ducks/reducer.js';
+import { deleteProperty, getProperties } from '../../ducks/reducer.js';
 import { connect } from 'react-redux';
 import './Dashboard.css';
-import axios from 'axios';
 import Property from './Property/Property.js';
 
 
 
 class Dashboard extends Component{
-    constructor(props){
-        super(props);
-        this.state ={
-            listings: this.props.listings
-        }
-        this.fetchAllProperties = this.fetchAllProperties.bind(this);
-    }
+    
 
-    componentDidMount(){
-        this.fetchAllProperties();
+    componentWillMount(){
+        const { getProperties, history } = this.props;
+        getProperties(history);
+        
         
     }
 
-    fetchAllProperties(){
-        axios.get(`/api/getProperties`)
-        .then((res) => {console.log(res.data) 
-            this.setState({ listings: res.data })})
-
-    }
+    
 
 
     render(){
-        console.log(this.props.listings,'listings')
-        const propertiesRender = this.state.listings.map( prop => {
+        
+        const { getProperties, deleteProperty, listings, history } = this.props;
+        const propertiesRender = listings.map( prop => {
             return(
             <Property 
             key={prop.id}
@@ -50,6 +41,7 @@ class Dashboard extends Component{
             state = { prop.state }
             zip = { prop.zip }
             deleteProperty = { deleteProperty }
+            getProperties = { getProperties }
     
             />)});
         
@@ -74,6 +66,7 @@ function mapStateToProps(state){
     return{
         listings: state.listings
     }
+    
 }
 
-export default connect( mapStateToProps, { deleteProperty })(Dashboard);
+export default connect( mapStateToProps, { deleteProperty, getProperties })(Dashboard);
