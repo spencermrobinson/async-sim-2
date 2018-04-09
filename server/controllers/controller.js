@@ -37,6 +37,7 @@ module.exports = {
         .then((response) => {
             req.session.user.user_id = response[0].id
             res.status(200).send(response[0])
+            console.log("user_id is:",req.session.user.user_id)
             
         })
     },
@@ -45,6 +46,14 @@ module.exports = {
         req.session.destroy();
         res.status(200).send(req.session);
         console.log(req.session, 'session destroyed')
+    },
+
+    deleteProperty: (req, res) => {
+        let db = req.app.get('db');
+        db.deleteProperty([req.params.id])
+        .then( () =>{ 
+            res.status(200).send();
+        })
     }
 
     

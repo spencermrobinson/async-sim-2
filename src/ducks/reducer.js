@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 
 const initialState = {
     user: null,
@@ -20,6 +20,7 @@ const initialState = {
 
 const UPDATE_PROPERTY = "UPDATE_PROPERTY";
 const RESET_PROPERTY = "RESET_PROPERTY";
+const DELETE_PROPERTY = "DELETE_PROPERTY";
 
 export default ( state = initialState, action ) => {
     const { payload } = action;
@@ -37,6 +38,9 @@ export default ( state = initialState, action ) => {
         
         
       }
+
+      case DELETE_PROPERTY + 'FULFILLED':
+        return Object.assign( {}, state, {properties: payload});
   
       case RESET_PROPERTY: {
         let newState = Object.assign({}, state);
@@ -62,5 +66,14 @@ export default ( state = initialState, action ) => {
       type: RESET_PROPERTY,
       payload: null
     }
+  }
+
+  export function deleteProperty(id){
+    console.log('reducer id:', id)
+    const promise = axios.delete(`/api/deleteProperty/${ id }`).then( resp => {resp.data, console.log('reducer hit')});
+    return{
+      type: DELETE_PROPERTY,
+      payload: promise
+    };
   }
   
