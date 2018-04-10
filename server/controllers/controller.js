@@ -55,6 +55,22 @@ module.exports = {
             res.status(200).send(resp)
             console.log(resp,'after delete')
         })
+    },
+
+    filterProperties: (req, res) => {
+        const { amount } = req.query;
+        const user_id = req.session.user.user_id;
+        let db = req.app.get('db');
+        if(!amount){
+            res.status(500).send();
+        }else{
+            if(amount){
+                db.filterProperties([+user_id, amount])
+                .then( (resp) => {
+                    res.status(200).send(resp)
+                })
+            }
+        }
     }
 
     

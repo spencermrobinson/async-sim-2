@@ -1,0 +1,35 @@
+.filter_container {
+width: 100%;
+height: 80px;
+background-color: blue;
+display: flex;
+justify-content: center; 
+align-items: center;
+border-bottom: 1px solid black;
+box-sizing: border-box;
+padding-bottom: 30px;
+}
+.filter_description {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .filter_input {
+      height: 40px;
+      width: 100px;
+      font-size: 20px;
+  }
+  .reset_button {
+      background-color: #3B5249;
+      color: white;
+      margin: 10px;
+      height: 40px;
+      width: 80px;
+      border-radius: 6px;
+  }
+  .filter_button {
+      background-color: #8AEA92;
+      margin-left: 20px;
+      height: 40px;
+      width: 80px;
+      border-radius: 6px;
+  }

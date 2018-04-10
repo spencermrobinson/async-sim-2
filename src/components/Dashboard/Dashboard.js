@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
 import { Link } from 'react-router-dom';
-import { deleteProperty, getProperties } from '../../ducks/reducer.js';
+import { deleteProperty, getProperties, filterProperties } from '../../ducks/reducer.js';
 import { connect } from 'react-redux';
 import './Dashboard.css';
 import Property from './Property/Property.js';
+import Filter from './Filter/Filter.js';
 
 
 
@@ -23,7 +24,7 @@ class Dashboard extends Component{
 
     render(){
         
-        const { getProperties, deleteProperty, listings, history } = this.props;
+        const { filterProperties ,getProperties, deleteProperty, listings, history } = this.props;
         const propertiesRender = listings.map( prop => {
             return(
             <Property 
@@ -42,7 +43,7 @@ class Dashboard extends Component{
             zip = { prop.zip }
             deleteProperty = { deleteProperty }
             getProperties = { getProperties }
-    
+            
             />)});
         
         return(
@@ -50,6 +51,7 @@ class Dashboard extends Component{
                 <Header/>
                 <div className="white_container">
                 <Link to='/step1'><button type='button' className='add_property'>Add New Property</button></Link>
+                <Filter getProperties = { getProperties } filterProperties = { filterProperties }/>
                 <div className="Dashboard__properties_container">
                 { propertiesRender }
               </div>
@@ -69,4 +71,4 @@ function mapStateToProps(state){
     
 }
 
-export default connect( mapStateToProps, { deleteProperty, getProperties })(Dashboard);
+export default connect( mapStateToProps, { deleteProperty, getProperties, filterProperties })(Dashboard);

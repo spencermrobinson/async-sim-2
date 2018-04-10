@@ -22,6 +22,7 @@ const UPDATE_PROPERTY = "UPDATE_PROPERTY";
 const RESET_PROPERTY = "RESET_PROPERTY";
 const GET_PROPERTIES = "GET_PROPERTIES";
 const DELETE_PROPERTY = "DELETE_PROPERTY";
+const FILTER_PROPERTIES = "FILTER_PROPERTIES";
 
 export default ( state = initialState, action ) => {
     const { payload } = action;
@@ -40,6 +41,8 @@ export default ( state = initialState, action ) => {
         
         
       }
+      case FILTER_PROPERTIES + '_FULFILLED':
+      return Object.assign({}, state, { listings: payload });
 
       case GET_PROPERTIES + '_FULFILLED':
       return Object.assign( {}, state, { listings: payload });
@@ -88,12 +91,22 @@ export default ( state = initialState, action ) => {
     }
   }
 
+  export function filterProperties( amount ) {
+    console.log('reducer hit')
+    const promise = axios.get( `/api/filter?amount=${amount}` ).then( response => response.data );
+  
+    return {
+      type: FILTER_PROPERTIES,
+      payload: promise
+    };
+  }
+
   export function deleteProperty(id){
     console.log('reducer id:', id)
     const promise = axios.delete(`/api/deleteProperty/${ id }`).then( resp => resp.data);
     return{
       type: DELETE_PROPERTY,
       payload: promise
-    };
+    }
   }
   
