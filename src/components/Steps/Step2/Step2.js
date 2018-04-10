@@ -3,6 +3,9 @@ import Header from '../../Header/Header.js';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateProperty, resetProperty } from '../../../ducks/reducer.js';
+import active from '../assets/step_active.png';
+import inactive from '../assets/step_inactive.png';
+import completed from '../assets/step_completed.png';
 import './Step2.css';
 
 class Step2 extends Component{
@@ -37,6 +40,16 @@ class Step2 extends Component{
                 <h3 className='add_property_text'>Add New Property</h3>
                 <Link to="/dashboard"><button type='button' className='cancel_button' onClick={ () => resetProperty()} >Cancel</button></Link>
             </section>
+            <div className="step_tracker_container">
+            <p className="step">Step 2</p>
+                <div className="step_tracker">
+                    <img className="tracker" src={ completed } alt="completed"/>
+                    <img className="tracker"  src={ active } alt="active"/>
+                    <img className="tracker"  src={ inactive } alt="inactive"/>
+                    <img className="tracker"  src={ inactive } alt="inactive"/>
+                    <img className="tracker"  src={ inactive } alt="inactive"/>
+                </div> 
+            </div> 
             <section className="input_container">
                 <span className="input_text">Address</span>
                 

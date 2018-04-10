@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Header from '../../Header/Header.js';
 import { resetProperty, updateProperty } from '../../../ducks/reducer.js';
 import { connect } from 'react-redux';
+import active from '../assets/step_active.png';
+import inactive from '../assets/step_inactive.png';
+import completed from '../assets/step_completed.png';
 import './Step5.css';
 import axios from 'axios';
 
@@ -62,6 +65,16 @@ class Step5 extends Component{
                 <h3 className='add_property_text'>Add New Property</h3>
                 <Link to="/dashboard"><button type='button' className='cancel_button' onClick={ () => resetProperty()} >Cancel</button></Link>
                 </section>
+                <div className="step_tracker_container">
+                <p className="step">Step 5</p>
+                <div className="step_tracker">
+                    <img className="tracker"  src={ completed } alt="completed"/>
+                    <img className="tracker"  src={ completed } alt="completed"/>
+                    <img className="tracker"  src={ completed } alt="completed"/>
+                    <img className="tracker"  src={ completed } alt="completed"/>
+                    <img className="tracker"  src={ active } alt="active"/>
+                </div> 
+            </div> 
                 <section className="input_container">
                     <span className="recommended_rent_input_text" >Recommened Rent ${recommended_rent}</span>
                     <span className="desired_rent_input_text" >Desired Rent</span>

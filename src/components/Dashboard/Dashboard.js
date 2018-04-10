@@ -12,7 +12,7 @@ import Filter from './Filter/Filter.js';
 class Dashboard extends Component{
     
 
-    componentWillMount(){
+    componentDidMount(){
         const { getProperties, history } = this.props;
         getProperties(history);
         
